@@ -2,10 +2,11 @@ import * as actionTypes from "../actions/actionTypes";
 
 const Results = {
     data: [],
+    dataFiltered: [],
     loading: false,
   };
 
-  const resultsReducer = (state = Results, action) => {
+export const resultsReducer = (state = Results, action) => {
     switch (action.type) {
       case actionTypes.LOADING_RESULTS:
         return { ...state, loading: action.payload };
@@ -13,7 +14,10 @@ const Results = {
         return {
           ...state,
           data: action.payload,
+          dataFiltered: action.payload.results,
         };
+      case actionTypes.FILTER_RESULTS:
+        return { ...state, dataFiltered: action.payload };
       default:
         return {
           ...state

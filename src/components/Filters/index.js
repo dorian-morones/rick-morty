@@ -1,35 +1,46 @@
 import React, {Component} from 'react'
 import { connect } from 'react-redux';
 import * as actions from '../../store/actions/index.js';
+import FilterName from "./FilterItem.js"
+import { filterData } from "../../Utilities/filter.js"
+import "./Filters.css"
 
 class Filters extends Component {
     constructor(props) {
         super(props)
-        this.state = { }
+        this.handlerFilters = this.handlerFilters.bind(this);
+        
     }
+
+    handlerFilters(status, gender){
+        let items = filterData(status, gender);
+        this.props.getFilteredResults(items)
+    }
+
     render(){
         return(
             <div className="Filters__Wrapper">
-                <div>Filter #1</div>
-                <div>Filter #2</div>
-                <div>Filter #3</div>
-                <div>Filter #4</div>
+                <h2>Filters</h2>
+                <FilterName handlerFilters={this.handlerFilters}/>
             </div>
         )
     }
 }
 
 const mapStateToProps = state => {
-    // return {
-    //     result: state.results.data.results
-    // };
+    return {
+        result: state.results.data.results
+    };
 };
 
 const mapDispatchToProps = dispatch => {
     return {
-        // getResults: () => {
-        //  dispatch(actions.getResults());
-        // }
+        getResults: () => {
+         dispatch(actions.getResults());
+        },
+        getFilteredResults: (results) => {
+            dispatch(actions.getFilteredResults(results));
+        }
     };
 };
 

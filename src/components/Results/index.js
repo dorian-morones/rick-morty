@@ -10,7 +10,7 @@ class Results extends Component {
         this.state = { }
     }
     render(){
-        let characthers = this.props.result !== undefined ? this.props.result.map( (item, index) => {
+        let characthers = this.props.filteredResults && this.props.filteredResults !== undefined ? this.props.filteredResults.map( (item, index) => {
             return(
                 <ResultItem 
                 key={index} 
@@ -28,14 +28,16 @@ class Results extends Component {
         }) : <p>Loading</p>
 
         return(
-            <div className="Results__Wrapper">{characthers}</div>
+            <div className="Results__Wrapper">{this.props.loading === true ? <p>Loading</p> : characthers}</div>
         )
     }
 }
 
 const mapStateToProps = state => {
     return {
-        result: state.results.data.results
+        result: state.results.data.results,
+        filteredResults: state.results.dataFiltered,
+        loading: state.results.loading
     };
 };
 
@@ -43,7 +45,7 @@ const mapDispatchToProps = dispatch => {
     return {
         getResults: () => {
          dispatch(actions.getResults());
-        }
+        },
     };
 };
 

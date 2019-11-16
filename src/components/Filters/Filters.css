@@ -1,0 +1,16 @@
+@import url('https://fonts.googleapis.com/css?family=Bebas+Neue|Roboto&display=swap');
+
+.Filters__Wrapper{
+    padding: 0 30px;
+    margin-bottom: 30px;
+}
+h2{
+    font-family: 'Bebas Neue', cursive;
+}
+
+select{
+    margin-right: 20px;
+}
+button{
+    margin-right: 20px;
+}

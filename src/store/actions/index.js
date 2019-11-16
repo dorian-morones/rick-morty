@@ -1,1 +1,1 @@
-export { getResults, loadingResults, receiveResults } from './results';
+export { getResults, getFilteredResults, loadingResults, receiveResults, filterResults } from './results';
