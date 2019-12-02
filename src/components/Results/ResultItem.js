@@ -1,5 +1,5 @@
 import React, {Component} from "react";
-
+import {createdDate} from "../../Utilities/date.js"
 class ResultItem extends Component {
     render(){
         let {id, name, status, species, gender, origin, location, created, image} = this.props
@@ -10,7 +10,7 @@ class ResultItem extends Component {
                     <div className="card-image"><img src={image} alt={image} /></div>
                     <div className="CharacterCard__Title">
                         <h2 className="CharacterCard__Name">{name}</h2>
-                         <p className="CharacterCard__Description">id: {id} - created {created}</p>
+                         <p className="CharacterCard__Description">id: {id} - created {createdDate(created)}</p>
                     </div>
                 </div>
                 <div data="card info" className="CharacterCard__Info_Wrapper">

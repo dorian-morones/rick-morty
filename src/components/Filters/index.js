@@ -12,8 +12,8 @@ class Filters extends Component {
         
     }
 
-    handlerFilters(status, gender){
-        let items = filterData(status, gender);
+    handlerFilters(status, gender, id){
+        let items = filterData(status, gender, id);
         this.props.getFilteredResults(items)
     }
 

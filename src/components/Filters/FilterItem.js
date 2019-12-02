@@ -1,4 +1,6 @@
 import React, {Component, Fragment} from 'react'
+import InputRange from 'react-input-range';
+import 'react-input-range/lib/css/index.css'
 
 class FilterName extends Component {
     constructor(props) {
@@ -8,12 +10,14 @@ class FilterName extends Component {
 
         this.state = { 
             status: "",
-            gender: ""
+            gender: "",
+            value: { min: 0, max: 20 },
         }
     }
 
-    handlerSearch(){
-        this.props.handlerFilters(this.state.status, this.state.gender)
+    handlerSearch(e){
+        console.log(this.state.value.min, this.state.value.max)
+        this.props.handlerFilters(this.state.status, this.state.gender, this.state.value)
     }
 
     handlerSetState(filterType, value){        
@@ -24,13 +28,23 @@ class FilterName extends Component {
             case "gender":
                     this.setState({gender: value})
                 break;
+            case "reset":
+                this.setState({
+                    status: "",
+                    gender: "",
+                    value: {min: 0, max:20}
+                }, () => {
+                    this.handlerSearch(this.state.status, this.state.gender, this.state.value)
+                })
+                break;
             default:
         }
     }
 
     render(){
         return(
-            <Fragment>
+            <div className="row">
+                <div className="col-4">
                 <select name="select" onChange={e => this.handlerSetState("status", e.target.value)}>
                     <option value="DEFAULT" >STATUS</option> 
                     <option value="Alive">Alive</option>
@@ -43,9 +57,18 @@ class FilterName extends Component {
                     <option value="Female">Female</option>
                     <option value="unknown">unknown</option>
                 </select >
+                <InputRange
+                    maxValue={20}
+                    minValue={0}
+                    value={this.state.value}
+                    onChange={value => this.setState({ value })}
+                    onChangeComplete={value => console.log(value)} />
+                </div>
+                <div className="col-8">
                 <button onClick={e => this.handlerSearch(e)}>Search</button>
-                <button onClick={e => this.props.handlerFilters("", "")}>Reset</button>
-            </Fragment>
+                <button onClick={e => this.handlerSetState("reset", "")}>Reset</button>
+                </div>
+            </div>
         )
     }
 }

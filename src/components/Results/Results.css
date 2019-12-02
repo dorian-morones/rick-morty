@@ -6,6 +6,7 @@
     flex-wrap: wrap;
     max-width: 100%;
     min-height: 40vh;
+    margin-top: 130px;
 }
 .CharacterCard__Wrapper{
     max-width: 300px;
