@@ -20,11 +20,10 @@ const CharacterView: React.FC<characterViewProps> = ({ color, title }) => {
   const { name, species, status, gender, image } = character;
 
   const handleId = (type: string) => {
-    const loc = id;
     if (type === 'plus') {
-      setId(loc + 1);
-    } else if (type === 'less' && loc > 1) {
-      setId(loc - 1);
+      setId(id + 1);
+    } else if (type === 'less' && id > 1) {
+      setId(id - 1);
     }
     fetchUrl();
   };

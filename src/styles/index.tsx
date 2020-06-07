@@ -86,7 +86,6 @@ export const BackText = styled.div`
   display:block;
   min-height:80vh; 
   min-width: 100vw;
-  line-height: 0.8;
   left: 0;
   text-align: center;
   background-color: #00afc7;
@@ -97,7 +96,7 @@ export const Text = styled.div`
   font-weight: bold;
   color: #000;
   opacity: 0.1;
-  line-height: 240px;
+  line-height: 0.8;
   text-align: center;
 `;
 
