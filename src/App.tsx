@@ -6,7 +6,6 @@ import './style.css';
 const Container = styled.div`
   background-color: #00afc7;
   padding: 20px;
-  overflow: hidden;
 `;
 
 

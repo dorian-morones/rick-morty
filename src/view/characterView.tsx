@@ -3,10 +3,12 @@ import Header from '../components/header';
 import { 
   Content,
   BackText,
-  Text
+  Text,
+  ChangeContainer,
  } from '../styles';
 import About from '../components/about';
 import Character from '../components/character';
+import ChangeId from '../components/changeId';
 import { useFetch } from '../hooks/useFetch';
 
 interface characterViewProps {
@@ -20,6 +22,11 @@ const CharacterView: React.FC<characterViewProps> = ({ color, title }) => {
   const [character, loading, fetchUrl] = useFetch(api);
 
   const {name, species, status, gender, image } = character;
+
+  const handleCharacter = (num:number) => {
+    setId(num);
+    fetchUrl(api);
+  };
 
   return (
     <>
@@ -39,6 +46,9 @@ const CharacterView: React.FC<characterViewProps> = ({ color, title }) => {
             <Character
               avatar={image}
             />
+            <ChangeContainer>
+              <ChangeId id={id} handleCharacter={handleCharacter} />
+            </ChangeContainer>
           </>
         ) : (
           <p>Loading...</p>

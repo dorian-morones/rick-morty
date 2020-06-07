@@ -97,3 +97,7 @@ export const Text = styled.div`
   color: #000;
   opacity: 0.1;
 `;
+
+export const ChangeContainer = styled.div`
+  grid-column: 6 / 7;
+`;
