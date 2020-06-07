@@ -1,21 +1,34 @@
 import React from 'react';
 import {
-  Info
+  InfoContainer,
+  Title,
+  AboutContainer,
+  AboutItem,
 } from '../../styles/';
 
 interface aboutViewProps {
-  data: any;
+  name: string;
+  species: string;
+  status: string;
+  gender: string;
 }
 
-const About: React.FC<aboutViewProps> = ({ data }) => {
-  console.log(data);
+const About: React.FC<aboutViewProps> = ({
+  name,
+  species,
+  status,
+  gender,
+}) => {
 
-  const { name, species } = data;
   return (
-    <Info>
-      <p>{name}</p>
-      <p>{species}</p>
-    </Info>
+    <InfoContainer>
+      <Title>{name}</Title>
+      <AboutContainer>
+        <AboutItem>Species: {species}</AboutItem>
+        <AboutItem>Gender: {gender}</AboutItem>
+        <AboutItem>Status: {status}</AboutItem>
+      </AboutContainer>
+    </InfoContainer>
   );
 };
 

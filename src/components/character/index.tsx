@@ -1,18 +1,18 @@
 import React from 'react';
 import {
-  Display
+  ImageContainer,
+  Image
 } from '../../styles';
 
 interface characterProps {
-  url?: string;
+  avatar?: any;
 }
 
-const Character: React.FC<characterProps> = ({ url }) => {
+const Character: React.FC<characterProps> = ({ avatar }) => {
   return (
-    <Display>
-      <p>url</p>
-      <p>Image</p>
-    </Display>
+    <ImageContainer>
+      <Image src={avatar} alt="dd" />
+    </ImageContainer>
   );
 };
 
