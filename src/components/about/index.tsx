@@ -24,9 +24,9 @@ const About: React.FC<aboutViewProps> = ({
     <InfoContainer>
       <Title>{name}</Title>
       <AboutContainer>
-        <AboutItem>Species: {species}</AboutItem>
-        <AboutItem>Gender: {gender}</AboutItem>
-        <AboutItem>Status: {status}</AboutItem>
+        <AboutItem>Species - {species}</AboutItem>
+        <AboutItem>Gender - {gender}</AboutItem>
+        <AboutItem>Status - {status}</AboutItem>
       </AboutContainer>
     </InfoContainer>
   );

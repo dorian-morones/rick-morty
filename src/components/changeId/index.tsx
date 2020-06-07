@@ -1,20 +1,28 @@
 import React from 'react';
-import { ChangeContainer } from '../../styles/';
+import {
+  ChangeContainer,
+  CurrentId,
+  Plus,
+  Less,
+  ArrowItem,
+} from '../../styles/';
+import Arrow from '../../assets/arrow.svg';
 
 interface changeIdProps {
-  handleCharacter: any;
+  handleId: any;
   id: number;
 }
 
-const ChangeId: React.FC<changeIdProps> = ({ handleCharacter, id = 1 }) => {
+const ChangeId: React.FC<changeIdProps> = ({ handleId, id = 1 }) => {
   return (
     <ChangeContainer>
-      <input
-        type="number"
-        min="1"
-        max="100"
-        onChange={(e: any) => handleCharacter(e.target.value)}
-      />
+      <Plus onClick={(e: any) => handleId('plus')}>
+        <ArrowItem src={Arrow} theme={{ rotate: '180deg' }} alt="" />
+      </Plus>
+      <CurrentId>{id}</CurrentId>
+      <Less onClick={(e: any) => handleId('less')}>
+        <ArrowItem src={Arrow} alt="" />
+      </Less>
     </ChangeContainer>
   );
 };

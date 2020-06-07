@@ -1,15 +1,11 @@
 import React, { useState } from 'react';
 import Header from '../components/header';
-import { 
-  Content,
-  BackText,
-  Text,
-  ChangeContainer,
- } from '../styles';
+import { Content, BackText, Text, ChangeContainer } from '../styles';
 import About from '../components/about';
 import Character from '../components/character';
 import ChangeId from '../components/changeId';
 import { useFetch } from '../hooks/useFetch';
+
 
 interface characterViewProps {
   color?: string;
@@ -21,11 +17,16 @@ const CharacterView: React.FC<characterViewProps> = ({ color, title }) => {
   const api = `https://rickandmortyapi.com/api/character/${id}`;
   const [character, loading, fetchUrl] = useFetch(api);
 
-  const {name, species, status, gender, image } = character;
+  const { name, species, status, gender, image } = character;
 
-  const handleCharacter = (num:number) => {
-    setId(num);
-    fetchUrl(api);
+  const handleId = (type: string) => {
+    const loc = id;
+    if (type === 'plus') {
+      setId(loc + 1);
+    } else if (type === 'less' && loc > 1) {
+      setId(loc - 1);
+    }
+    fetchUrl();
   };
 
   return (
@@ -43,11 +44,9 @@ const CharacterView: React.FC<characterViewProps> = ({ color, title }) => {
               status={status}
               gender={gender}
             />
-            <Character
-              avatar={image}
-            />
+            <Character avatar={image} />
             <ChangeContainer>
-              <ChangeId id={id} handleCharacter={handleCharacter} />
+              <ChangeId id={id} handleId={handleId} />
             </ChangeContainer>
           </>
         ) : (

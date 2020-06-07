@@ -13,7 +13,8 @@ export const LogoImg = styled.img`
 export const Content = styled.div`
   position: absolute;
   width: 100vw;
-  height: 80vh;
+  height: 40vh;
+  min-height: 410px;
   display: grid;
   grid-template-columns: repeat(6, 1fr);
   left: 0px;
@@ -28,9 +29,9 @@ export const ImageContainer = styled.div`
 `;
 
 export const Image = styled.img`
-  width: 80%;
+  width: 50%;
   display: block;
-  margin: 0 auto;
+  margin: 80px auto;
   border-radius: 50%;
   border: solid #009db3  2px;
   transition: border 0.3s;
@@ -53,13 +54,12 @@ export const Title = styled.h2`
     width: 1%;
     height: 5px;
     -webkit-transition: width 0.3s;
-    transition: width 0.3s;
-    top: -25px;
-    left: 50%;
+    transition: width 0.5s;
+    left: 5%;
   }
 
   &:hover::after {
-    width: 45%;
+    width: 80%;
   }
 `;
 
@@ -86,18 +86,43 @@ export const BackText = styled.div`
   display:block;
   min-height:80vh; 
   min-width: 100vw;
+  line-height: 0.8;
   left: 0;
   text-align: center;
   background-color: #00afc7;
 `;
 
 export const Text = styled.div`
-  font-size: 14em;
+  font-size: 380px;
   font-weight: bold;
   color: #000;
   opacity: 0.1;
+  line-height: 240px;
+  text-align: center;
 `;
 
 export const ChangeContainer = styled.div`
   grid-column: 6 / 7;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 100%;
+`;
+
+export const CurrentId = styled.p`
+  text-align: center;
+`;
+
+export const Plus = styled.p`
+  text-align: center;
+`;
+
+export const Less = styled.p`
+  text-align: center;
+`;
+
+export const ArrowItem = styled.img`
+  width: 30px;
+  rotate: ${(props) => props.theme.rotate ? props.theme.rotate : '0'};
+  cursor: pointer;
 `;
