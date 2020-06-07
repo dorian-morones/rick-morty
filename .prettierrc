@@ -1,0 +1,12 @@
+{
+  "requireConfig": true,
+  "singleQuote": true,
+  "trailingComma": "all",
+  "printWidth": 80,
+  "useTabs": false,
+  "bracketSpacing": true,
+  "arrowParens": "always",
+  "endOfLine": "auto",
+  "jsxBracketSameLine": false,
+  "tabWidth": 2
+}
