@@ -39,7 +39,7 @@ export const Image = styled.img`
   -moz-box-shadow: 0px 3px 20px -7px rgba(0,0,0,0.3);
   box-shadow: 0px 3px 20px -7px rgba(0,0,0,0.3);
   &:hover{
-    border: solid #ff4646 10px;
+    border: solid #c0d350 10px;
   }
 `;
 
@@ -48,7 +48,7 @@ export const Title = styled.h2`
   text-transform: uppercase;
   &::after {
     content: '';
-    background: #ff4646;
+    background: #c0d350;
     display: block;
     position: relative;
     width: 1%;
@@ -72,7 +72,7 @@ export const AboutItem = styled.p`
   padding: 15px;
   margin: 0 0 30px 0;
   border-radius: 8px;
-  background-color: #ff4646;
+  background-color: #c0d350;
   color: #fff;
   font-weight: bold;
   -webkit-box-shadow: 0px 3px 20px -7px rgba(0,0,0,0.3);
